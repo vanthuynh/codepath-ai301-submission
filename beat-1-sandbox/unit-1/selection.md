@@ -13,24 +13,38 @@ wrong label is not graded.
 
 ## Selected issue
 
-**Issue link**
+**[codepath/pathreview-ai301-fa26-s3#37](https://github.com/codepath/pathreview-ai301-fa26-s3/issues/37)**
 
 [The individual Path Review issue page. A link to the repository or the issue list
 does not satisfy this field.]
 
 **Verdict output**
 
-[Your skill's live-mode output for this issue, pasted verbatim and ending with the
-fenced JSON verdict block. A summary does not satisfy this field.]
+I ran in live mode against 4 good-first-issue candidates from Path
+Review repo (`codepath/pathreview-ai301-fa26-s3`) and
+all 4 were `accept`
 
-**The verdict must record `accept` for this issue.** Choose an issue your own skill
-accepts. If your skill rejects every candidate you try, that is a signal about your
-rubric rather than about the issues: revise it and re-run — retries are unlimited and a
-partial re-run costs about $0.20 — or run the skill on different candidates. Output
-recording `reject` for the issue you chose earns no credit for this field.
+- #37 API reference doc missing `POST /profile` request body schema
+- #47 API docs don't include example `curl` command
+- #26 Add a safety event count to the health check endpoint
+- #56 Structural chunker silently drops documents that contain no headings
 
-```
-paste the output here, including the closing JSON block
+I chose issue #37 since I want to apply my backend knowledge in designing & reading database schema:
+
+```json
+  {
+    "item": "https://github.com/codepath/pathreview-ai301-fa26-s3/issues/37",
+    "checks": [
+      {"name": "maintainer-alive", "grade": "pass", "evidence": "Last default-branch commit 2026-09-16 by Aburke225, 6 days before today (2026-09-22)."},
+      {"name": "repo-in-use", "grade": "pass", "evidence": "archived: false and pushed_at 2026-09-16 (within 90 days); no releases, 3 stars."},
+      {"name": "Scope-bounded", "grade": "pass", "evidence": "Documents request bodies for two named endpoints in a 32-line docs/API.md; a two-part deliverable, not an umbrella/tracking issue."},
+      {"name": "issue-unclaimed", "grade": "pass", "evidence": "assignees: none; repo has 0 pull requests total; 0 comments on the thread."},
+      {"name": "Contribution policy allows AI-assisted work", "grade": "pass", "evidence": "docs/CONTRIBUTING.md is the only policy doc and states no AI restriction; no AI_POLICY.md or PR template."},
+      {"name": "Good-first-issue label", "grade": "pass", "evidence": "Labels: enhancement, good first issue, api, docs, tier-1."},
+      {"name": "Clear acceptance criteria", "grade": "pass", "evidence": "Body specifies a description and example value per field for POST /profiles and POST /reviews, and flags that POST /profiles is multipart form data."}
+    ],
+    "verdict": "accept"
+  },
 ```
 
 ---
@@ -41,9 +55,9 @@ Quote source text directly in each field below. Paraphrase does not satisfy them
 
 **Run history**
 
-[The agreement score of each run you did, in order. A single run is a complete answer if
-only one run occurred. **The last score in your list must match the agreement line in the
-`eval-run.txt` you committed** — that file is the record of your final run.]
+1. I first performed smoke-test run with `--limit 3` flag but encountered encoding bugs (`cp1252`) on my Windows laptop. This is due to several eval bundles contain emoji/arrow characters, and encoding them for the child process's stdin raised `UnicodeEncodeError`, so the harness refused to write `eval-run.txt` (partial/errored run).
+2. Patched `run_eval.py` (via Claude's suggestion) by enforcing UTF-8 encoding in the `grade_one` subprocess (`encoding="utf-8", errors="replace"`). This overrides the problematic OS locale fallback of `text=True`. The fix is isolated to the CLI pipe and preserves the fingerprint integrity of both `rubric.md` and `SKILL.md`.
+3. I then reran the full 20-issue test suite with no issue, harness wrote `eval-run.txt` and `results.json`. Scored 15/20 against gold (missed the 18/20 target) but successfully met the category floor requirement (`claimed 4/4  clear-accept 5/8  dead-repo 3/3  policy 1/1  scope 2/4`). The committed `eval-run.txt` reflects this specific execution.
 
 **Issue analysis**
 

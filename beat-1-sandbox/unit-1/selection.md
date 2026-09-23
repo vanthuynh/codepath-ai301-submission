@@ -13,7 +13,7 @@ wrong label is not graded.
 
 ## Selected issue
 
-**[codepath/pathreview-ai301-fa26-s3#37](https://github.com/codepath/pathreview-ai301-fa26-s3/issues/37)**
+Issue Link: **[codepath/pathreview-ai301-fa26-s3#37](https://github.com/codepath/pathreview-ai301-fa26-s3/issues/37)**
 
 [The individual Path Review issue page. A link to the repository or the issue list
 does not satisfy this field.]
@@ -61,21 +61,27 @@ Quote source text directly in each field below. Paraphrase does not satisfy them
 
 **Issue analysis**
 
-[One scored issue, identified by id (`issue-01` through `issue-20`; the `calib-`
-issues are not scored). State your rubric's decision, the gold label, and the
-reasoning that produced your rubric's result.]
+Scored issue analyzed: `issue-1`
+
+My rubric verdict: `reject`
+
+Gold-label: `accept` (Agree = NO)
+
+My rubric reject `issue-1` even though issue 1 was opened within 90 days, have active status, unassigned, etc. My rubric couldn't decide on scope-bounded check. However, my rubric did correctly point out that issue-1 didn't pass the 2 preffered condition `good-first-issue` label as well as `clear acceptance criteria`, which doesn't affect the final condition but can be unclear. I didn't include `unclear` decision in Verdict section so that may be why my rubric rejected the issue.
 
 **Check rationale**
 
-[One check from the `rubric.md` uploaded to `tools/issue-select/`, quoted as it is
-currently written, with the reasoning behind its current form.]
+Check: `Scope-bounded`
+
+My scope condition:
+
+> Fails if the issue is an umbrella/tracking issue listing multiple sub-items, if the thread shows an unresolved design debate with no maintainer decision, if a maintainer states the fix touches core internals, or if the issue is a pure usage/support question rather than a concrete bug or feature ask. A terse body or missing repro steps does not by itself fail this check.
+
+I built this check to keep bounded first contributions separate from messy umbrella issues, design questions, support requests, and heavy core changes. After running some evaluations, I also updated it so that a maintainer listing a few causes for one bug doesn't accidentally get treated as multiple separate tasks.
 
 **Trade-offs**
 
-[What the quoted check gives up. Any one of these is a complete answer: an issue whose
-result it changes, a canary you re-ran with `--only`, a case you accept it will miss, or a
-stated reason nothing changed elsewhere. "Nothing changed, and here is how I know" earns
-the point in full when the reason follows.]
+The rubric prioritizes issues demonstrating clear repository activity, accessible ownership, bounded scope, and contribution-policy compatibility, minimizing the selection of abandoned, claimed, or overly broad tasks. The trade-off is that nuanced issues may be misclassified if their true difficulty is buried in lengthy discussion histories or multiple abandoned attempts rather than a single explicit signal.
 
 ---
 
@@ -87,12 +93,9 @@ This is also the basis for the claim comment you write in Unit 2.
 
 **Selection rationale**
 
-[Answer all three:
-
-1. The issue's fit to your interests and to the time available.
-2. What the verdict identified correctly, and what you weighed that the rubric could
-   not.
-3. The anticipated difficulty in claiming it.]
+1. I'm currently more interested in backend engineering and this issue would allow me to apply my knowledge in database design, understanding new codebase, and fix the bug.
+2. The verdict identified correctly all checks and graded pass for all, which satisfy all of my rubric for a good issue that I can work on.
+3. This issue is tagged `tier 1` so it won't be very challenging and just enough for me to practice before stepping in Unit 2 where I need to understand the code, the issue, and reintroduce the bug
 
 ---
 

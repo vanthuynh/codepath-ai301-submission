@@ -15,15 +15,11 @@ label is not graded.
 
 **Pull request**
 
-[Link to the pull request you opened. It must be the pull request's own page on the Path
-Review repo, not your fork's branch page.]
+[codepath/pathreview-ai301-fa26-s3](https://github.com/codepath/pathreview-ai301-fa26-s3/pull/231)
 
 **Branch**
 
-[The name of the branch the pull request comes from, exactly as it appears in your fork.
-The naming shape is a type prefix, then the issue number, then a short description. **The
-issue number in the branch name must be the number of the issue the pull request fixes** —
-a name carrying any other number does not satisfy this field.]
+`fix/37-api-request-body-schema`
 
 ## Eval iterations
 
@@ -32,9 +28,14 @@ fields.
 
 **Run history**
 
-[The agreement score of each run you did, in order. A single run is a complete answer if
-only one run occurred. **The last score in your list must match the agreement line in the
-`eval-run.txt` you committed** — that file is the record of your final run.]
+- I first run with `--limit 3`. The output correctly pass 3/3 scored items
+
+- I then ran the full `run_eval.py --skill /Users/van.huynh/.claude/skills/pr-precheck --save-run eval-run.txt `
+
+> grading 20 package(s) with the tool at /Users/van.huynh/.claude/skills/pr-precheck, model sonnet, 5 worker(s)...
+>  ...
+
+> categories: clear-accept 7/7  not-tested 4/4  silent-drift 4/4  standards-wall 2/2  unreviewable 3/3 agreement: 20/20 scored items  (bar: 18/20: PASS)
 
 **Package analysis**
 
@@ -44,9 +45,8 @@ explain why your rubric read it that way.]
 
 **Check rationale**
 
-[Quote one check from the `rubric.md` you uploaded to `tools/pr-precheck/`, exactly as it reads now.
-Then say why it reads that way — what you revised to get there, or what you rejected in
-favour of it.]
+> standards_and_disclosure: 
+> - The candidate PR's title and description, read against the repo-facts contribution policy, the PR template, the issue thread, and any AI-use disclosure requirements. | Passes when everything the PR template explicitly requires is there and the repo's contribution conditions are met, including AI-use disclosure where it's required. Fails when a mandatory section, issue reference, required disclosure, or stated policy condition is missing. A brief answer, an explained N/A, or an honestly disclosed shortfall is acceptable where the repo allows it.
 
 **Trade-offs**
 

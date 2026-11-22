@@ -2,65 +2,23 @@
 
 Path: `beat-2-contribution/contribution-story.md`
 
-This file is Assignment 5, and it is graded at the path above; a copy kept anywhere else in
-the repository is not read. **Keep every section header below under its exact name** — the
-format criteria grade exactly that. Your course repo link is the whole submission: no tool
-files and no evidence uploads are part of Assignment 5.
-
-**Contribution Number:** [1]
-**Student:** Van Huynh
-**GitHub Username:** vanthuynh
-**Issue:** [codepath/pathreview-ai301-fa26-s3#28](https://github.com/codepath/pathreview-ai301-fa26-s3/issues/28)
-**Pull Request:** [GitHub PR link, once opened]
-
-One repository, built across units 5 to 8, telling the whole story of your real
-contribution. Fill it as you work, not at the end — the sections below ask for evidence that
-is far easier to write down as it happens than to reconstruct in the last weekend.
-
-Contribution Number stays `[1]` unless you make more than one contribution this term; it
-just numbers them.
+**Contribution Number:** [1]  
+**Student:** Van Huynh  
+**GitHub Username:** vanthuynh  
+**Issue:** [codepath/pathreview-ai301-fa26-s3#28](https://github.com/codepath/pathreview-ai301-fa26-s3/issues/28)  
+**Pull Request:** https://github.com/codepath/pathreview-ai301-fa26-s3/pull/285   
 
 ---
 
 ## Toolkit
 
-Every story section below, from Why I Chose This Issue through Pull
-Request, ends with a Toolkit block: which tool did that phase's work
-and how you used it, what it produced, what difficulties or
-shortcomings it presented, and what you changed or would change
-because of them. Together the blocks are the thread the rubric's
-Toolkit points read, and they are the raw material for your unit-9
-portfolio, so keep them current as you work rather than
-reconstructing them later.
-
-A Toolkit block looks like this (copy it into each story section and
-fill it there):
-
-```text
-**Toolkit**
-
-- Tool: [which tool did this phase's work, and how you used it]
-- What it produced: [described in a sentence or a short excerpt]
-- Difficulties: [what fought you or fell short, or "none met"]
-- What changed: [the patch, revision, or workaround, what you would
-  update, or "nothing"]
-```
-
-This section also keeps one short dated entry per week of tool work,
-starting below: what you built or changed that week, what broke, and
-what you changed because of it. The blocks tell the story where it
-happened; these entries are the toolkit's own timeline.
-
-All four entries are graded. Keep every heading below, and fill each
-one in the week it belongs to.
-
-**Unit 5: [one line on the tool work]**
+**Unit 5: Issue Selection and Identifying gaps in my scouting workflow**
 
 My first install was broken: the skill files sat one folder too deep, in `~/.claude/skills/issue-select/skill/`, so Claude Code never loaded the skill. I rebuilt it as a flat `~/.claude/skills/issue-scout/`. Even though I did install the `issue-scout.md` and implemented `search-strategy.md`, I didn't choose any issue from the search result. I selected Issue #28 during the PathReview classroom contribution process prior to Unit 5. Because I did not save a verified issue-scout scan or a Unit 5 search-strategy file, I cannot confirm whether the scout evaluated or recommended this specific issue. This experience highlighted the importance of documenting my workflow. In the future, I will retain my search queries, ranking criteria, and issue verdicts to clearly demonstrate how tool-based insights influence my decisions.
 
-**Unit 6: [one line on the tool work]**
+**Unit 6: Reviewing my upstream communication, voice-guard, and wild scops**
 
-To ensure my issue comments were specific, evidence-based, and repository-appropriate, I utilized structured draft reviews early in the process. I also followed strict voice guidelines to stick to verified facts and avoid making promises I couldn't deliver. I installed both `skill/repro-check-scope-wild.md` to `~/.claude/skills/repro-check/scope.md` and `plan/repro-check-scope-wild.md` to `~/.claude/skills/plan-check/scope.md`. 
+To ensure my issue comments were specific, evidence-based, and repository-appropriate, I utilized structured draft reviews early in the process. I also followed strict voice-guide to stick to verified facts and avoid making promises I couldn't deliver. I installed both `skill/repro-check-scope-wild.md` to `~/.claude/skills/repro-check/scope.md` and `plan/repro-check-scope-wild.md` to `~/.claude/skills/plan-check/scope.md`.  
 
 **Unit 7: [one line on the tool work]**
 
@@ -68,7 +26,9 @@ Before opening the PR, I used my `pr-precheck` skill to compare the implementati
 
 **Unit 8: [one line on the tool work]**
 
-TODO before submitting: install the PR monitor (Week 8 steps 1-3), write the playbook, run monitor.py on PR #656, and replace this paragraph with what it read, what it drafted, and what you did with the draft. As of 2026-11-09 the PR has only the bot's welcome comment and no review.
+I installed the PR monitor and created a playbook covering reviewer responses, staleness thresholds, follow-up etiquette, and criteria for closing a PR. The monitor checked PR #28 and reported six passing checks, a clean merge state, no maintainer reviews, and 25 days without activity. My first drafting attempt failed because my Claude OAuth session expired; after reauthenticating, the monitor generated a polite follow-up based on my provisional 21-day threshold. I reviewed the draft and identified outdated CI information in the PR description that needed correction before sending a follow-up.
+
+
 
 ---
 
@@ -380,10 +340,11 @@ Re-running the three repro loops: unauthenticated `GET /reviews` should start re
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+- Tool: [which tool did this phase's work, and how you used it]
+- What it produced: [described in a sentence or a short excerpt]
+- Difficulties: [what fought you or fell short, or "none met"]
+- What changed: [the patch, revision, or workaround, what you would
+  update, or "nothing"]
 
 ---
 
@@ -461,10 +422,11 @@ Before: 100 × `401`. **Expected after: `401` up to the IP limit, then `429`.**
 
 **Toolkit**
 
-- Tool: 
-- What it produced:
-- Difficulties: figuring out different test for different API call behaviors
-- What changed:
+- Tool: [which tool did this phase's work, and how you used it]
+- What it produced: [described in a sentence or a short excerpt]
+- Difficulties: [what fought you or fell short, or "none met"]
+- What changed: [the patch, revision, or workaround, what you would
+  update, or "nothing"]
 
 ---
 
@@ -761,8 +723,8 @@ N/A — this change has no UI surface. The observable behavior is the status cod
 
 - Tool: Markdown
 - What it produced: Markdown Pull Request draft
-- Difficulties: NA
-- What changed: NA
+- Difficulties: [what fought you or fell short, or "none met"]
+- What changed: api/middleware/rate_limit.py` (new), `tests/unit/test_rate_limit_middleware.py` (new), `api/main.py`, `core/config.py`, `.env.example`, `docs/API.md`. No change to `safety/rate_limiter.py`.
 
 ---
 
